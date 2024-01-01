@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1p75umqahjev"]
+
+[ext_resource type="Script" path="res://Overlap/text_box.gd" id="1_aavpv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ijb86"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="TextBox" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_aavpv")
+
+[node name="TextBoxContainer" type="MarginContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -85.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Panel" type="Panel" parent="TextBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ijb86")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Panel" type="Panel" parent="TextBoxContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Start" type="Label" parent="TextBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "*"
+
+[node name="Label" type="Label" parent="TextBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 12
+text = "Text! Wordwraps around two lines. Make sure text fits..."
+autowrap_mode = 2
+clip_text = true
+visible_characters_behavior = 1
+
+[node name="End" type="Label" parent="TextBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(9, 26)
+layout_mode = 2
+size_flags_vertical = 8
+text = "v"
